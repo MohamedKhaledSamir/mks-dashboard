@@ -1,0 +1,30 @@
+@mixin responsiveGrid($min) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($min, 1fr));
+}
+
+@mixin flexCol($align, $gap) {
+  display: flex;
+  flex-direction: column;
+  align-items: $align;
+  justify-content: center;
+  gap: $gap;
+}
+@mixin flexRow($justify, $gap) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: $justify;
+  gap: $gap;
+}
+
+@mixin To($pixels) {
+  @media (max-width: $pixels) {
+    @content;
+  }
+}
+@mixin From($pixels) {
+  @media (min-width: $pixels) {
+    @content;
+  }
+}

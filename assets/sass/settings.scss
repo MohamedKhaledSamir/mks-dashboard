@@ -1,0 +1,245 @@
+@use "./variables" as *;
+@use "./globals" as *;
+@use "./helpers" as *;
+@use "./holders" as *;
+
+main {
+  .main-title {
+    margin-bottom: 40px;
+  }
+
+  .grid {
+    width: 100%;
+    @include responsiveGrid(500px);
+    gap: 20px;
+
+    @include To(768px) {
+      @include responsiveGrid(100%);
+      gap: 10px;
+    }
+
+    .site-control {
+      @extend %widget;
+
+      .header {
+        margin-bottom: 5px;
+      }
+
+      .desc {
+        color: $grey-color;
+        margin-bottom: 30px;
+      }
+
+      .controller {
+        @include flexRow(space-between, 0px);
+        margin-bottom: 30px;
+
+        .text {
+          h3 {
+            font-weight: 500;
+            font-size: 15px;
+            margin-bottom: 5px;
+          }
+
+          p {
+            color: $grey-color;
+            font-size: 14px;
+          }
+        }
+
+        .toggler-container {
+          input {
+            display: none;
+
+            &:checked ~ .toggler {
+              background-color: #ccc;
+
+              &::before {
+                left: 4px;
+                content: "\f00d";
+              }
+            }
+          }
+
+          .toggler {
+            background-color: $blue-color;
+            width: 78px;
+            height: 32px;
+            border-radius: 16px;
+            position: relative;
+            transition: 0.3s;
+            cursor: pointer;
+            position: relative;
+
+            &::before {
+              position: absolute;
+              font-family: $awesome;
+              content: "\f00c";
+              font-weight: 900;
+              background-color: white;
+              width: 24px;
+              height: 24px;
+              position: absolute;
+              border-radius: 50%;
+              top: 4px;
+              left: 50px;
+              color: #aaa;
+              transition: 0.3s;
+              @include flexRow(center, 0);
+            }
+          }
+        }
+      }
+
+      textarea {
+        width: 100%;
+        resize: none;
+        height: 150px;
+        border: 1px solid #ccc;
+        padding: 5px;
+        border-radius: 5px;
+      }
+    }
+
+    .social-info {
+      @extend %widget;
+
+      .header {
+        margin-bottom: 5px;
+      }
+      .desc {
+        color: $grey-color;
+        margin-bottom: 20px;
+      }
+
+      .social {
+        @include flexRow(unset, 0);
+        margin-bottom: 15px;
+
+        &:focus-within i {
+          color: black;
+        }
+
+        i {
+          width: 40px;
+          height: 40px;
+          background-color: #f6f6f6;
+          color: $grey-color;
+          border: 1px solid #ddd;
+          border-right: none;
+          border-radius: 6px 0 0 6px;
+          transition: 0.3s;
+          @include flexRow(center, 0);
+        }
+
+        input {
+          height: 40px;
+          background-color: #f6f6f6;
+          border: 1px solid #ddd;
+          padding-left: 10px;
+          border-radius: 0 6px 6px 0;
+          flex: 1;
+        }
+      }
+    }
+
+    .backup-manager {
+      @extend %widget;
+
+      .header {
+        margin-bottom: 5px;
+      }
+
+      .desc {
+        color: $grey-color;
+        margin-bottom: 20px;
+      }
+
+      .time {
+        margin-bottom: 40px;
+
+        .radio {
+          @include flexRow(unset, 7px);
+          width: fit-content;
+          cursor: pointer;
+
+          margin-bottom: 10px;
+          font-weight: 500;
+
+          input {
+            display: none;
+
+            &:checked ~ .circle {
+              border-color: $blue-color;
+
+              &::before {
+                background-color: $blue-color;
+              }
+            }
+          }
+
+          span {
+            display: inline-block;
+          }
+
+          .circle {
+            width: 22px;
+            height: 22px;
+            border: 1px solid $grey-color;
+            border-radius: 50%;
+            transition: 0.3s;
+
+            position: relative;
+
+            &::before {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              width: 8px;
+              height: 8px;
+              background-color: white;
+              border-radius: 50%;
+              transform: translate(-50%, -50%);
+              transition: 0.3s;
+            }
+          }
+        }
+      }
+
+      .servers {
+        @include flexRow(unset, 20px);
+
+        input {
+          display: none;
+
+          &:checked + label {
+            border-color: $blue-color;
+            color: $blue-color;
+          }
+        }
+
+        label {
+          border: 1px solid #eee;
+          cursor: pointer;
+          border-radius: 5px;
+          padding: 20px 8px;
+          flex: 1;
+          font-size: 18px;
+
+          @include To(768px) {
+            font-size: 13px;
+          }
+
+          @include flexCol(center, 10px);
+          transition: 0.3s;
+
+          span {
+            display: block;
+            transition: 0.3s;
+          }
+        }
+      }
+    }
+  }
+}

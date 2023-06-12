@@ -1,0 +1,143 @@
+@use "./variables" as *;
+@use "./globals" as *;
+@use "./helpers" as *;
+@use "./holders" as *;
+
+main {
+  .main-title {
+    margin-bottom: 40px;
+  }
+
+  .flex {
+    display: flex;
+    gap: 20px;
+    @include To(768px) {
+      @include flexCol(unset, 20px);
+      flex-direction: column-reverse;
+    }
+
+    .statistics {
+      padding: 20px;
+      min-width: 260px;
+      background-color: white;
+      height: fit-content;
+      border-radius: 5px;
+
+      .box {
+        @include flexRow(space-between, 0);
+
+        &:not(:last-child) {
+          margin-bottom: 20px;
+        }
+
+        &.pdf {
+          i {
+            color: $blue-color;
+            background-color: lighten($color: $blue-color, $amount: 40%);
+          }
+        }
+        &.images {
+          i {
+            color: $green-color;
+            background-color: lighten($color: $green-color, $amount: 40%);
+          }
+        }
+        &.word {
+          i {
+            color: $red-color;
+            background-color: lighten($color: $red-color, $amount: 30%);
+          }
+        }
+        &.csv {
+          i {
+            color: $orange-color;
+            background-color: lighten($color: $orange-color, $amount: 40%);
+          }
+        }
+
+        .main {
+          @include flexRow(unset, 10px);
+
+          i {
+            width: 40px;
+            height: 40px;
+            @include flexRow(center, 0);
+          }
+
+          .info {
+            .name {
+              font-size: 13px;
+              font-weight: 600;
+
+              margin-bottom: 3px;
+            }
+
+            .number {
+              color: $grey-color;
+              font-size: 13px;
+            }
+          }
+        }
+
+        .size {
+          color: $grey-color;
+          font-size: 13px;
+        }
+      }
+    }
+
+    .files {
+      flex: 1;
+      @include responsiveGrid(200px);
+      gap: 20px;
+
+      .file {
+        padding: 10px;
+        border-radius: 10px;
+        background-color: white;
+
+        position: relative;
+
+        i {
+          position: absolute;
+          color: $grey-color;
+          top: 10px;
+          left: 10px;
+        }
+
+        .image {
+          text-align: center;
+          margin-block: 15px;
+
+          img {
+            width: 64px;
+            height: 64px;
+          }
+        }
+
+        .name {
+          font-size: 14px;
+          text-align: center;
+          margin-bottom: 10px;
+        }
+
+        .uploader {
+          font-size: 13px;
+          color: $grey-color;
+          margin-block: 13px;
+        }
+
+        .other-details {
+          @include flexRow(space-between, 0px);
+
+          border-top: 1px solid #eee;
+          padding-top: 10px;
+          margin-top: 10px;
+
+          font-size: 13px;
+          color: $grey-color;
+        }
+      }
+    }
+  }
+}

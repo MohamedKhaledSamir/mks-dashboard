@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <!-- DESCRIPTION -->
+    <meta name="description" content="A dashboard for MKS company" />
+
+    <!-- KEYWORDS -->
+    <meta name="keywords" content="Dashboard, mks company" />
+
+    <!-- TITLE -->
+    <title>MKS Dashboard</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FONT AWEOSOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- CSS LINK -->
+    <link rel="stylesheet" href="../assets/css/settings.css" />
+  </head>
+  <body>
+    <aside>
+      <div class="container">
+        <h1 class="logo">MKS</h1>
+
+        <nav>
+          <ul>
+            <li>
+              <a href="../index.html"
+                ><i class="fa-regular fa-chart-bar fa-fw"></i>
+                <span>Dashboard</span></a
+              >
+            </li>
+            <li class="active">
+              <a href="./settings.html">
+                <i class="fa-solid fa-gear fa-fw"></i> <span>Settings</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="./files.html">
+                <i class="fa-regular fa-file fa-fw"></i>
+                <span>Files</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <main>
+      <header>
+        <div class="search">
+          <input type="search" placeholder="Type A Keyword" />
+        </div>
+
+        <div class="icons">
+          <div class="notification">
+            <i class="fa-regular fa-bell fa-lg"></i>
+          </div>
+
+          <div class="profile-image">
+            <img src="../assets/images/person3.jpg" alt="person" />
+          </div>
+        </div>
+      </header>
+
+      <div class="container">
+        <h2 class="main-title">Settings</h2>
+
+        <div class="grid">
+          <div class="site-control">
+            <h2 class="header">Site Control</h2>
+
+            <p class="desc">Control The Website If There Is Maintenance</p>
+
+            <div class="controller">
+              <div class="text">
+                <h3>Website Control</h3>
+
+                <p>Open/Close Website And Type The Reason</p>
+              </div>
+
+              <label class="toggler-container">
+                <input type="checkbox" />
+
+                <div class="toggler"></div>
+              </label>
+            </div>
+            <textarea placeholder="Close Message Content"></textarea>
+          </div>
+
+          <div class="social-info">
+            <h2 class="header">Social Info</h2>
+
+            <p class="desc">Social Media Information</p>
+
+            <div class="social">
+              <i class="fa-brands fa-twitter center-flex c-grey"></i>
+              <input type="text" placeholder="Twitter Username" />
+            </div>
+            <div class="social">
+              <i class="fa-brands fa-facebook-f center-flex c-grey"></i>
+              <input type="text" placeholder="Facebook Username" />
+            </div>
+            <div class="social">
+              <i class="fa-brands fa-linkedin center-flex c-grey"></i>
+              <input type="text" placeholder="Linkedin Username" />
+            </div>
+            <div class="social">
+              <i class="fa-brands fa-youtube center-flex c-grey"></i>
+              <input type="text" placeholder="Youtube Username" />
+            </div>
+          </div>
+
+          <div class="backup-manager">
+            <h2 class="header">Backup Manager</h2>
+
+            <p class="desc">Control Backup Time And Location</p>
+
+            <div class="time">
+              <label class="radio">
+                <input
+                  type="radio"
+                  checked
+                  value="male"
+                  name="gender"
+                  id="male"
+                />
+                <span class="circle"></span>
+                <span class="duration">Daily</span>
+              </label>
+              <label class="radio">
+                <input type="radio" value="female" name="gender" id="female" />
+                <span class="circle"></span>
+                <span class="duration">Weekly</span>
+              </label>
+              <label class="radio">
+                <input type="radio" value="female" name="gender" id="female" />
+                <span class="circle"></span>
+                <span class="duration">Monthly</span>
+              </label>
+            </div>
+
+            <div class="servers">
+              <input name="server" type="radio" id="megaman" />
+              <label class="radio" for="megaman">
+                <i class="fa-solid fa-server d-block mb-10"></i>
+                <span class="name">MegaMan</span>
+              </label>
+
+              <input name="server" type="radio" id="zero" checked />
+              <label class="radio" for="zero">
+                <i class="fa-solid fa-server d-block mb-10"></i>
+
+                <span class="name">Zero</span>
+              </label>
+
+              <input name="server" type="radio" id="sigma" />
+              <label class="radio" for="sigma">
+                <i class="fa-solid fa-server d-block mb-10"></i>
+
+                <span class="name">Sigma</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

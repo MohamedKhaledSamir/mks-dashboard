@@ -1,0 +1,479 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #f1f5f9;
+}
+
+.container {
+  width: 100%;
+  padding-inline: 3%;
+}
+
+input,
+textarea {
+  outline: none;
+  border: none;
+}
+input:focus,
+textarea:focus {
+  border: none;
+  outline: none;
+}
+
+h2.header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+aside {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  width: -moz-fit-content;
+  width: fit-content;
+  box-shadow: 0 0 10px #ddd;
+  height: 100%;
+}
+@media (max-width: 768px) {
+  aside {
+    padding: 5px;
+  }
+}
+aside .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+aside .container .logo {
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+  font-size: 1.5rem;
+  padding-bottom: 20px;
+}
+aside .container .logo::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200%;
+  height: 3px;
+  background-color: black;
+}
+@media (max-width: 768px) {
+  aside .container .logo::before {
+    width: 100%;
+  }
+}
+aside .container .logo::after {
+  content: "";
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  background-color: black;
+  border: 4px solid white;
+  bottom: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+}
+aside .container nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 15px;
+}
+aside .container nav ul li {
+  border-radius: 5px;
+}
+aside .container nav ul li.active {
+  background-color: rgba(136, 136, 136, 0.15);
+}
+aside .container nav ul li a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 20px;
+}
+@media (max-width: 768px) {
+  aside .container nav ul li a span {
+    display: none;
+  }
+}
+
+main {
+  width: calc(100% - 192.58px);
+  margin-left: auto;
+  background-color: #f1f5f9;
+}
+@media (max-width: 768px) {
+  main {
+    width: calc(100% - 70px);
+  }
+}
+
+header {
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0px;
+  background-color: white;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  header {
+    padding: 20px 15px;
+  }
+}
+header .search {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  position: relative;
+}
+header .search::before {
+  font-family: "Font Awesome 6 Free";
+  content: "\f002";
+  font-weight: 900;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #888;
+}
+header .search input {
+  padding-left: 35px;
+  width: 150px;
+  padding-right: 5px;
+  padding-block: 10px;
+  border-radius: 8px;
+  transition: 0.3s;
+  border: 1px solid rgba(136, 136, 136, 0.5);
+}
+header .search input:active, header .search input:focus {
+  width: 160px;
+}
+header .icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+header .icons .profile-image {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+header .icons .profile-image img {
+  border-radius: 50%;
+}
+header .icons .notification {
+  position: relative;
+}
+header .icons .notification::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  right: -6px;
+  top: -6px;
+  background-color: #f44336;
+}
+
+.main-title {
+  margin-top: 20px;
+  font-size: 2.2rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+}
+.main-title::before, .main-title::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 3px;
+}
+.main-title::before {
+  width: 90%;
+  background-color: white;
+}
+.main-title::after {
+  width: 30%;
+  background-color: black;
+  z-index: 1;
+}
+
+main .grid .site-control, main .grid .social-info, main .grid .backup-manager {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+main .main-title {
+  margin-bottom: 40px;
+}
+main .grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 20px;
+}
+@media (max-width: 768px) {
+  main .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    gap: 10px;
+  }
+}
+main .grid .site-control .header {
+  margin-bottom: 5px;
+}
+main .grid .site-control .desc {
+  color: #888;
+  margin-bottom: 30px;
+}
+main .grid .site-control .controller {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0px;
+  margin-bottom: 30px;
+}
+main .grid .site-control .controller .text h3 {
+  font-weight: 500;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+main .grid .site-control .controller .text p {
+  color: #888;
+  font-size: 14px;
+}
+main .grid .site-control .controller .toggler-container input {
+  display: none;
+}
+main .grid .site-control .controller .toggler-container input:checked ~ .toggler {
+  background-color: #ccc;
+}
+main .grid .site-control .controller .toggler-container input:checked ~ .toggler::before {
+  left: 4px;
+  content: "\f00d";
+}
+main .grid .site-control .controller .toggler-container .toggler {
+  background-color: #0075ff;
+  width: 78px;
+  height: 32px;
+  border-radius: 16px;
+  position: relative;
+  transition: 0.3s;
+  cursor: pointer;
+  position: relative;
+}
+main .grid .site-control .controller .toggler-container .toggler::before {
+  position: absolute;
+  font-family: "Font Awesome 6 Free";
+  content: "\f00c";
+  font-weight: 900;
+  background-color: white;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  border-radius: 50%;
+  top: 4px;
+  left: 50px;
+  color: #aaa;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+main .grid .site-control textarea {
+  width: 100%;
+  resize: none;
+  height: 150px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 5px;
+}
+main .grid .social-info .header {
+  margin-bottom: 5px;
+}
+main .grid .social-info .desc {
+  color: #888;
+  margin-bottom: 20px;
+}
+main .grid .social-info .social {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: unset;
+  gap: 0;
+  margin-bottom: 15px;
+}
+main .grid .social-info .social:focus-within i {
+  color: black;
+}
+main .grid .social-info .social i {
+  width: 40px;
+  height: 40px;
+  background-color: #f6f6f6;
+  color: #888;
+  border: 1px solid #ddd;
+  border-right: none;
+  border-radius: 6px 0 0 6px;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+main .grid .social-info .social input {
+  height: 40px;
+  background-color: #f6f6f6;
+  border: 1px solid #ddd;
+  padding-left: 10px;
+  border-radius: 0 6px 6px 0;
+  flex: 1;
+}
+main .grid .backup-manager .header {
+  margin-bottom: 5px;
+}
+main .grid .backup-manager .desc {
+  color: #888;
+  margin-bottom: 20px;
+}
+main .grid .backup-manager .time {
+  margin-bottom: 40px;
+}
+main .grid .backup-manager .time .radio {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: unset;
+  gap: 7px;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+main .grid .backup-manager .time .radio input {
+  display: none;
+}
+main .grid .backup-manager .time .radio input:checked ~ .circle {
+  border-color: #0075ff;
+}
+main .grid .backup-manager .time .radio input:checked ~ .circle::before {
+  background-color: #0075ff;
+}
+main .grid .backup-manager .time .radio span {
+  display: inline-block;
+}
+main .grid .backup-manager .time .radio .circle {
+  width: 22px;
+  height: 22px;
+  border: 1px solid #888;
+  border-radius: 50%;
+  transition: 0.3s;
+  position: relative;
+}
+main .grid .backup-manager .time .radio .circle::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s;
+}
+main .grid .backup-manager .servers {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: unset;
+  gap: 20px;
+}
+main .grid .backup-manager .servers input {
+  display: none;
+}
+main .grid .backup-manager .servers input:checked + label {
+  border-color: #0075ff;
+  color: #0075ff;
+}
+main .grid .backup-manager .servers label {
+  border: 1px solid #eee;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 20px 8px;
+  flex: 1;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: 0.3s;
+}
+@media (max-width: 768px) {
+  main .grid .backup-manager .servers label {
+    font-size: 13px;
+  }
+}
+main .grid .backup-manager .servers label span {
+  display: block;
+  transition: 0.3s;
+}

@@ -1,0 +1,947 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #f1f5f9;
+}
+
+.container {
+  width: 100%;
+  padding-inline: 3%;
+}
+
+input,
+textarea {
+  outline: none;
+  border: none;
+}
+input:focus,
+textarea:focus {
+  border: none;
+  outline: none;
+}
+
+h2.header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+aside {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  width: -moz-fit-content;
+  width: fit-content;
+  box-shadow: 0 0 10px #ddd;
+  height: 100%;
+}
+@media (max-width: 768px) {
+  aside {
+    padding: 5px;
+  }
+}
+aside .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+aside .container .logo {
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+  font-size: 1.5rem;
+  padding-bottom: 20px;
+}
+aside .container .logo::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200%;
+  height: 3px;
+  background-color: black;
+}
+@media (max-width: 768px) {
+  aside .container .logo::before {
+    width: 100%;
+  }
+}
+aside .container .logo::after {
+  content: "";
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  background-color: black;
+  border: 4px solid white;
+  bottom: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+}
+aside .container nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 15px;
+}
+aside .container nav ul li {
+  border-radius: 5px;
+}
+aside .container nav ul li.active {
+  background-color: rgba(136, 136, 136, 0.15);
+}
+aside .container nav ul li a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 20px;
+}
+@media (max-width: 768px) {
+  aside .container nav ul li a span {
+    display: none;
+  }
+}
+
+main {
+  width: calc(100% - 192.58px);
+  margin-left: auto;
+  background-color: #f1f5f9;
+}
+@media (max-width: 768px) {
+  main {
+    width: calc(100% - 70px);
+  }
+}
+
+header {
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0px;
+  background-color: white;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  header {
+    padding: 20px 15px;
+  }
+}
+header .search {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  position: relative;
+}
+header .search::before {
+  font-family: "Font Awesome 6 Free";
+  content: "\f002";
+  font-weight: 900;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #888;
+}
+header .search input {
+  padding-left: 35px;
+  width: 150px;
+  padding-right: 5px;
+  padding-block: 10px;
+  border-radius: 8px;
+  transition: 0.3s;
+  border: 1px solid rgba(136, 136, 136, 0.5);
+}
+header .search input:active, header .search input:focus {
+  width: 160px;
+}
+header .icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+header .icons .profile-image {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+header .icons .profile-image img {
+  border-radius: 50%;
+}
+header .icons .notification {
+  position: relative;
+}
+header .icons .notification::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  right: -6px;
+  top: -6px;
+  background-color: #f44336;
+}
+
+.main-title {
+  margin-top: 20px;
+  font-size: 2.2rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+}
+.main-title::before, .main-title::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 3px;
+}
+.main-title::before {
+  width: 90%;
+  background-color: white;
+}
+.main-title::after {
+  width: 30%;
+  background-color: black;
+  z-index: 1;
+}
+
+main .grid .welcome .profile-btn, main .projects-table table .in-progress,
+main .projects-table table .completed,
+main .projects-table table .pending,
+main .projects-table table .rejected {
+  background: #0075ff;
+  color: white;
+  padding: 4px 10px;
+  font-size: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+main .grid .draft, main .grid .targets, main .grid .tasks, main .grid .uploads, main .grid .project-progress, main .grid .post, main .grid .socials, main .projects-table {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+main header {
+  padding: 20px 40px;
+  background-color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0px;
+}
+@media (max-width: 768px) {
+  main header {
+    padding: 20px 15px;
+  }
+}
+main header .search {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+}
+main header .search::before {
+  font-family: "Font Awesome 6 Free";
+  content: "\f002";
+  font-weight: 900;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #888;
+}
+main header .search input {
+  padding-left: 35px;
+  width: 150px;
+  padding-right: 5px;
+  padding-block: 10px;
+  border-radius: 8px;
+  transition: 0.3s;
+  border: 1px solid rgba(136, 136, 136, 0.5);
+}
+main header .search input:active, main header .search input:focus {
+  width: 160px;
+}
+main header .icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+main header .icons .profile-image {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+main header .icons .profile-image img {
+  border-radius: 50%;
+}
+main header .icons .notification {
+  position: relative;
+}
+main header .icons .notification::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  right: -6px;
+  top: -6px;
+  background-color: #f44336;
+}
+main .main-title {
+  margin-top: 20px;
+  font-size: 2.2rem;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+}
+main .main-title::before, main .main-title::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 3px;
+}
+main .main-title::before {
+  width: 90%;
+  background-color: white;
+}
+main .main-title::after {
+  width: 30%;
+  background-color: black;
+  z-index: 1;
+}
+main .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  margin-top: 40px;
+  gap: 20px;
+}
+@media (max-width: 768px) {
+  main .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+main .grid .welcome {
+  background-color: white;
+  border-radius: 10px;
+}
+main .grid .welcome .cover {
+  background-color: #eee;
+  padding-inline: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0px;
+  border-radius: 10px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+main .grid .welcome .cover .message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+main .grid .welcome .cover .message:first-child {
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+main .grid .welcome .cover .message .name {
+  font-size: 1rem;
+  color: #888;
+}
+main .grid .welcome .cover .image {
+  width: 150px;
+}
+main .grid .welcome .profile-image {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 4px solid white;
+  margin-top: -32px;
+  margin-left: 20px;
+}
+main .grid .welcome .profile-image img {
+  border-radius: 50%;
+}
+main .grid .welcome .details {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding-block: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  gap: 0px;
+}
+@media (max-width: 768px) {
+  main .grid .welcome .details {
+    display: flex;
+    flex-direction: column;
+    align-items: unset;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+main .grid .welcome .details div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+main .grid .welcome .details div span:nth-of-type(1) {
+  font-weight: bold;
+}
+main .grid .welcome .details div span:nth-of-type(2) {
+  font-size: 14px;
+  color: #888;
+}
+main .grid .welcome .profile-btn {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-right: 15px;
+  margin-bottom: 40px;
+  margin-left: auto;
+}
+main .grid .draft .title {
+  margin-bottom: 20px;
+  font-size: 1.7rem;
+}
+main .grid .draft .desc {
+  font-size: 15px;
+  color: #888;
+  margin-bottom: 20px;
+}
+main .grid .draft input {
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  background-color: #eee;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+main .grid .draft textarea {
+  resize: none;
+  min-height: 180px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  background-color: #eee;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+main .grid .draft .save-btn {
+  margin-left: auto;
+  transition: 0.3s;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: 6px;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 14px;
+  background-color: #0075ff;
+  color: white;
+}
+main .grid .targets .desc {
+  color: #888;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+main .grid .targets .target {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: unset;
+  gap: 20px;
+}
+main .grid .targets .target:not(:last-child) {
+  margin-bottom: 20px;
+}
+main .grid .targets .target .icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+}
+main .grid .targets .target .details {
+  display: flex;
+  flex-direction: column;
+  align-items: unset;
+  justify-content: center;
+  gap: 0px;
+  flex: 1;
+}
+main .grid .targets .target .details .name {
+  color: #888;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+main .grid .targets .target .details .amount {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+main .grid .targets .target .details .progress {
+  height: 4px;
+  position: relative;
+}
+main .grid .targets .target .details .progress::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+main .grid .targets .target .details .progress span {
+  position: absolute;
+  transform: translateX(-20px);
+  bottom: 20px;
+  border-radius: 5px;
+  color: white;
+  font-size: 13px;
+  padding: 5px;
+}
+main .grid .targets .target .details .progress span::before {
+  content: "";
+  position: absolute;
+  border: 5px solid transparent;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+main .grid .targets .target.money .icon {
+  background: #cce3ff;
+  color: #0075ff;
+}
+main .grid .targets .target.money .details .progress {
+  background: #cce3ff;
+}
+main .grid .targets .target.money .details .progress::before {
+  background: #0075ff;
+  width: 80%;
+}
+main .grid .targets .target.money .details .progress span {
+  background: #0075ff;
+  left: 80%;
+}
+main .grid .targets .target.money .details .progress span::before {
+  border-top-color: #0075ff;
+}
+main .grid .targets .target.projects .icon {
+  background: #fdeccf;
+  color: #f59e0b;
+}
+main .grid .targets .target.projects .details .progress {
+  background: #fdeccf;
+}
+main .grid .targets .target.projects .details .progress::before {
+  background: #f59e0b;
+  width: 55%;
+}
+main .grid .targets .target.projects .details .progress span {
+  background: #f59e0b;
+  left: 55%;
+}
+main .grid .targets .target.projects .details .progress span::before {
+  border-top-color: #f59e0b;
+}
+main .grid .targets .target.team .icon {
+  background: #bff4d3;
+  color: #22c55e;
+}
+main .grid .targets .target.team .details .progress {
+  background: #bff4d3;
+}
+main .grid .targets .target.team .details .progress::before {
+  background: #22c55e;
+  width: 75%;
+}
+main .grid .targets .target.team .details .progress span {
+  background: #22c55e;
+  left: 75%;
+}
+main .grid .targets .target.team .details .progress span::before {
+  border-top-color: #22c55e;
+}
+main .grid .tasks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 15px;
+}
+main .grid .tasks .task {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+main .grid .tasks .task .details .name {
+  font-size: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+main .grid .tasks .task .details .desc {
+  color: #888;
+}
+main .grid .tasks .task i {
+  cursor: pointer;
+  transition: 0.3s;
+}
+main .grid .tasks .task i:hover {
+  color: #f44336;
+}
+main .grid .tasks .task.done .details {
+  text-decoration: line-through;
+  color: #888;
+}
+main .grid .uploads .upload {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0px;
+}
+main .grid .uploads .upload:not(:last-child) {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+}
+main .grid .uploads .upload .file-img {
+  width: 40px;
+  height: 40px;
+}
+main .grid .uploads .upload .details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: inset;
+  gap: 10px;
+}
+main .grid .uploads .upload .details .file-uploader {
+  display: flex;
+  flex-direction: column;
+  align-items: unset;
+  justify-content: center;
+  gap: 2px;
+}
+main .grid .uploads .upload .details .file-uploader .uploader {
+  color: #888;
+}
+main .grid .uploads .upload .size {
+  padding: 4px 10px;
+  border-radius: 6px;
+  background-color: #eee;
+  font-size: 13px;
+}
+main .grid .project-progress {
+  z-index: 1;
+}
+main .grid .project-progress ul {
+  position: relative;
+}
+main .grid .project-progress ul::before {
+  content: "";
+  position: absolute;
+  height: 90%;
+  width: 2px;
+  left: 13px;
+  z-index: -1;
+  background-color: #0075ff;
+}
+main .grid .project-progress ul .project {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: unset;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+main .grid .project-progress ul .project .name {
+  max-width: 150px;
+}
+main .grid .project-progress ul .project .circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: white;
+  border: 2px solid #0075ff;
+  position: relative;
+}
+main .grid .project-progress ul .project .circle::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+  height: 85%;
+  background-color: #0075ff;
+  border-radius: 50%;
+}
+main .grid .project-progress ul .project:nth-child(5) ::before {
+  animation: changeColor 1s alternate infinite;
+}
+@keyframes changeColor {
+  from {
+    background-color: white;
+  }
+  to {
+    background-color: #0075ff;
+  }
+}
+main .grid .project-progress ul .project:nth-child(6) ::before {
+  background-color: white;
+}
+main .grid .post .uploader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: unset;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+main .grid .post .uploader img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+main .grid .post .uploader .info {
+  display: flex;
+  flex-direction: column;
+  align-items: unset;
+  justify-content: center;
+  gap: 5px;
+}
+main .grid .post .uploader .info .name {
+  font-weight: bold;
+}
+main .grid .post .uploader .info .time {
+  color: #888;
+}
+main .grid .post .content {
+  padding-block: 25px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+main .grid .post .actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0px;
+  color: #888;
+}
+main .grid .socials {
+  display: flex;
+  flex-direction: column;
+  align-items: unset;
+  justify-content: center;
+  gap: 10px;
+}
+main .grid .socials .social {
+  padding-right: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+main .grid .socials .social .info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: unset;
+  gap: 15px;
+}
+main .grid .socials .social .info .number {
+  color: #0075ff;
+  font-size: 14px;
+}
+main .grid .socials .social .info .icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  background-color: #0075ff;
+  width: 60px;
+  height: 60px;
+  color: white;
+  transition: 0.3s;
+}
+main .grid .socials .social .info .icon:hover {
+  transform: rotate(4deg);
+}
+main .grid .socials .social .action {
+  background-color: #0075ff;
+  color: white;
+  padding: 4px 7px;
+  font-size: 13px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+main .grid .socials .social.twitter {
+  background-color: rgba(29, 161, 242, 0.2);
+  color: #1da1f2;
+}
+main .grid .socials .social.twitter .info .icon {
+  background-color: #1da1f2;
+}
+main .grid .socials .social.twitter .action {
+  background-color: #1da1f2;
+}
+main .grid .socials .social.facebook {
+  background-color: rgba(24, 119, 242, 0.2);
+  color: #1da1f2;
+}
+main .grid .socials .social.facebook .info .icon {
+  background-color: #1877f2;
+}
+main .grid .socials .social.facebook .action {
+  background-color: #1877f2;
+}
+main .grid .socials .social.youtube {
+  background-color: rgba(255, 0, 0, 0.2);
+  color: #ff0000;
+}
+main .grid .socials .social.youtube .info .icon {
+  background-color: #ff0000;
+}
+main .grid .socials .social.youtube .action {
+  background-color: #ff0000;
+}
+main .grid .socials .social.linkedin {
+  background-color: rgba(0, 119, 181, 0.2);
+  color: #0077b5;
+}
+main .grid .socials .social.linkedin .info .icon {
+  background-color: #0077b5;
+}
+main .grid .socials .social.linkedin .action {
+  background-color: #0077b5;
+}
+main .projects-table {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+main .projects-table::-webkit-scrollbar {
+  height: 7px;
+}
+main .projects-table::-webkit-scrollbar-thumb {
+  background-color: #0075ff;
+}
+main .projects-table::-webkit-scrollbar-track {
+  background-color: white;
+}
+main .projects-table table {
+  min-width: 1000px;
+  width: 100%;
+  border-spacing: 0;
+}
+main .projects-table table td {
+  padding: 15px;
+}
+main .projects-table table img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+main .projects-table table img:not(:first-child) {
+  margin-left: -20px;
+}
+main .projects-table table .in-progress,
+main .projects-table table .completed,
+main .projects-table table .pending,
+main .projects-table table .rejected {
+  font-size: 14px;
+  cursor: auto;
+}
+main .projects-table table .in-progress {
+  background-color: #0075ff;
+}
+main .projects-table table .completed {
+  background-color: #22c55e;
+}
+main .projects-table table .rejected {
+  background-color: #f44336;
+}
+main .projects-table table .pending {
+  background-color: #f59e0b;
+}
+main .projects-table table thead {
+  background-color: #eee;
+  font-weight: bold;
+}
+main .projects-table table tbody td {
+  border: 1px solid rgba(238, 238, 238, 0.6862745098);
+}

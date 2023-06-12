@@ -1,0 +1,242 @@
+@use "./variables" as *;
+@use "./helpers" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #f1f5f9;
+}
+
+.container {
+  width: 100%;
+  padding-inline: 3%;
+}
+
+input,
+textarea {
+  outline: none;
+  border: none;
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+}
+
+h2.header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+aside {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  @include To(768px) {
+    padding: 5px;
+  }
+
+  width: fit-content;
+  box-shadow: 0 0 10px #ddd;
+  height: 100%;
+  .container {
+    @include flexCol(center, 40px);
+    .logo {
+      width: fit-content;
+      position: relative;
+      font-size: 1.5rem;
+      padding-bottom: 20px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200%;
+        @include To(768px) {
+          width: 100%;
+        }
+        height: 3px;
+        background-color: black;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 13px;
+        height: 13px;
+        background-color: black;
+        border: 4px solid white;
+        bottom: -9px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 50%;
+      }
+    }
+
+    nav {
+      ul {
+        @include flexCol(flex-start, 15px);
+
+        li {
+          border-radius: 5px;
+
+          &.active {
+            background-color: rgba($grey-color, 0.15);
+          }
+          a {
+            @include flexRow(center, 10px);
+            padding: 10px 20px;
+
+            @include To(768px) {
+              span {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+main {
+  width: calc(100% - 192.58px);
+
+  @include To(768px) {
+    width: calc(100% - 70px);
+  }
+  margin-left: auto;
+
+  background-color: $body-background;
+}
+
+header {
+  padding: 20px 40px;
+  @include To(768px) {
+    padding: 20px 15px;
+  }
+  @include flexRow(space-between, 0px);
+  background-color: white;
+  width: 100%;
+
+  .search {
+    @include flexRow(center, 0px);
+    position: relative;
+
+    &::before {
+      font-family: $awesome;
+      content: "\f002";
+      font-weight: 900;
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      color: $grey-color;
+    }
+    input {
+      padding-left: 35px;
+      width: 150px;
+      padding-right: 5px;
+      padding-block: 10px;
+      border-radius: 8px;
+      transition: 0.3s;
+      border: 1px solid rgba($grey-color, 0.5);
+
+      &:active,
+      &:focus {
+        width: 160px;
+      }
+    }
+  }
+
+  .icons {
+    @include flexRow(center, 15px);
+    .profile-image {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+
+      img {
+        border-radius: 50%;
+      }
+    }
+
+    .notification {
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+
+        right: -6px;
+        top: -6px;
+        background-color: $red-color;
+      }
+    }
+  }
+}
+
+.main-title {
+  margin-top: 20px;
+  font-size: 2.2rem;
+  width: fit-content;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    height: 3px;
+  }
+
+  &::before {
+    width: 90%;
+    background-color: white;
+  }
+
+  &::after {
+    width: 30%;
+    background-color: black;
+    z-index: 1;
+  }
+}
